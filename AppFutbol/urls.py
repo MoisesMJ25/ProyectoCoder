@@ -1,8 +1,8 @@
 from django.urls import path
-from AppFutbol.views import guardar_equipo, equipos, jugadores, profesores
+from AppFutbol.views import *
 
 urlpatterns = [
-    path('equipo/<nombre>', guardar_equipo),
+    path('equipo/<nombre>/<categoria>', guardar_equipo),
     path('equipos', equipos),
     path('jugadores', jugadores),
     path('profesores', profesores),

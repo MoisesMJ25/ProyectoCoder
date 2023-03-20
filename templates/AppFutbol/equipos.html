@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block contenido_cambia %}
+    <h1>El contenido ha sido modificado</h1>
+    {% if equipos %}
+        {% for equipo in equipos %}
+            <p>equipo: {{ equipo.nombre }}</p>
+            <p>categoria: {{ equipo.categoria }}</p>
+
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
