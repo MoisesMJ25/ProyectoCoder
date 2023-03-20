@@ -7,3 +7,12 @@ def guardar_equipo(request):
     equipo = Equipo(nombre="Junior", categoria="sub10")
     equipo.save()
     return HttpResponse (f"Equipo {equipo} creado exitosamente!")
+
+def equipos(request):
+    return render(request, "index.html")
+
+def jugadores(request):
+    pass
+
+def profesores(request):
+    pass
