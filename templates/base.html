@@ -19,6 +19,11 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'AppFutbol/css/styles.css' %}" rel="stylesheet" />
     </head>
+
+    {% block contenido_cambia %}
+        <h3>Bienvenido!</h3>
+    {% endblock %}
+
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">

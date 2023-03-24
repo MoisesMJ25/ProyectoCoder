@@ -4,14 +4,13 @@ from AppFutbol.models import Equipo
 
 # Create your views here.
 def guardar_equipo(request, nombre, categoria):
-    save_equipo = Equipo(nombre="Junior", categoria="sub10")
+    save_equipo = Equipo(nombre=nombre, categoria=categoria)
     save_equipo.save()
     context = {
         "nombre": nombre,
-        "categoría": categoria
+        "categoria": categoria
     }
-    return render(request, "AppsFutbol/save_equipo.html", context)
-    #return HttpResponse (f"Equipo {equipo} creado exitosamente!")
+    return render(request, "AppFutbol/save_equipo.html", context)
 
 
 def equipos(request):

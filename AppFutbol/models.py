@@ -11,7 +11,7 @@ class Equipo(models.Model):
 class Jugadores(models.Model):
     nombre = models.CharField(max_length=20)
     apellido = models.CharField(max_length=20)
-    edad = models.IntegerField(max_length=2)
+    edad = models.IntegerField(2)
 
     def __str__(self):
         return f"Jugador: {self.nombre}, Apellido {self.apellido}, Edad: {self.edad}"
