@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from AppFutbol.models import Equipo
+from AppFutbol.models import Equipo, Jugadores, Profesores
 
 # Create your views here.
+
+def home(request):
+    return render(request, "base.html")
+
 def guardar_equipo(request, nombre, categoria):
     save_equipo = Equipo(nombre=nombre, categoria=categoria)
     save_equipo.save()
@@ -21,7 +25,15 @@ def equipos(request):
     return render(request, "AppFutbol/equipos.html")
 
 def jugadores(request):
-    pass
+    all_jugadores = Jugadores.objects.all()
+    contextt = {
+        "Jugadores": all_jugadores
+    }
+    return render(request, "AppFutbol/jugadores.html")
 
 def profesores(request):
-    pass
+    all_profesores = Profesores.objects.all()
+    contextt = {
+        "Profesores": all_profesores
+    }
+    return render(request, "AppFutbol/profesores.html")

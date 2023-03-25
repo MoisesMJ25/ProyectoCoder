@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block contenido_cambia %}
+    <h1>Profesores agregados</h1>
+    {% if profesores %}
+        {% for profesor in profesores %}
+            <p>Nombre: {{ profesores.nombre }}</p>
+            <p>Apellido: {{ profesores.apellido }}</p>
+
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

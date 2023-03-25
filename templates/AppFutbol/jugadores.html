@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block contenido_cambia %}
+    <h1>Jugadores agregados</h1>
+    {% if jugadores %}
+        {% for jugador in jugadores %}
+            <p>Nombre: {{ jugadores.nombre }}</p>
+            <p>Apellido: {{ jugadores.apellido }}</p>
+
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
