@@ -1,11 +1,17 @@
 {% extends "base.html" %}
 
 {% block contenido_cambia %}
+    <form action="{% url 'AppFutbolJugadores' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <input type="submit" value="Agregar">
+    </form>
     <h1>Jugadores agregados</h1>
     {% if jugadores %}
         {% for jugador in jugadores %}
-            <p>Nombre: {{ jugadores.nombre }}</p>
-            <p>Apellido: {{ jugadores.apellido }}</p>
+            <p>Nombre: {{ jugador.nombre }}</p>
+            <p>Apellido: {{ jugador.apellido }}</p>
+            <p>Edad: {{ jugador.edad }}</p>
 
         {% endfor %}
     {% endif %}

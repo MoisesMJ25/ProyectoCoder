@@ -1,13 +1,20 @@
 {% extends "base.html" %}
 
 {% block contenido_cambia %}
+    <form action="{% url 'AppFutbolEquipos' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <input type="submit" value="Agregar">
+    </form>
     <h1>Equipos agregados</h1>
     {% if equipos %}
         {% for equipo in equipos %}
-            <p>equipo: {{ equipo.nombre }}</p>
-            <p>categoria: {{ equipo.categoria }}</p>
+            <p>Equipo: {{ equipo.nombre }}</p>
+            <p>Categoria: {{ equipo.categoria }}</p>
 
         {% endfor %}
+    {% else %}
+        <h1>No hay equipos agregados</h1>
     {% endif %}
 
 {% endblock %}

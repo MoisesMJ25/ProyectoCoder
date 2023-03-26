@@ -1,11 +1,17 @@
 {% extends "base.html" %}
 
 {% block contenido_cambia %}
+    <form action="{% url 'AppFutbolProfesores' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <input type="submit" value="Agregar">
+    </form>
     <h1>Profesores agregados</h1>
     {% if profesores %}
         {% for profesor in profesores %}
-            <p>Nombre: {{ profesores.nombre }}</p>
-            <p>Apellido: {{ profesores.apellido }}</p>
+            <p>Nombre: {{ profesor.nombre }}</p>
+            <p>Apellido: {{ profesor.apellido }}</p>
+            <p>Edad: {{ profesor.email }}</p>
 
         {% endfor %}
     {% endif %}
