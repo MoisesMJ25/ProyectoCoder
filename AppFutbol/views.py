@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from AppFutbol.models import Equipo, Jugadores, Profesores
-from AppFutbol.forms import EquipoForm, JugadorForm, ProfesorForm
+from AppFutbol.forms import EquipoForm, JugadorForm, ProfesorForm, BusquedaEquipoForm
 
 # Create your views here.
 
@@ -33,7 +33,8 @@ def equipos(request):
     all_equipos = Equipo.objects.all()
     context = {
         "equipos": all_equipos,
-        "form": EquipoForm()
+        "form": EquipoForm(),
+        "form_busqueda": BusquedaEquipoForm(),
     }
     return render(request, "AppFutbol/equipos.html", context=context)
 
@@ -80,3 +81,16 @@ def profesores(request):
         "form": ProfesorForm
     }
     return render(request, "AppFutbol/profesores.html", context=context)
+
+
+def busqueda_equipo(request):
+    #mostrar datos filtrados
+    mi_formulario = BusquedaEquipoForm(request.GET)
+    if mi_formulario.is_valid():
+        info = mi_formulario.cleaned_data
+        equipos_filtrados = Equipo.objects.filter(nombre__icontains=info['nombre'])
+        context ={
+            "equipos": equipos_filtrados
+        }
+
+    return render(request, "AppFutbol/Busqueda_equipo.html", context=context)

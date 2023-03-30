@@ -16,3 +16,7 @@ class ProfesorForm(forms.Form):
     nombre = forms.CharField(min_length=4, max_length=10)
     apellido = forms.CharField(min_length=4, max_length=10)
     email = forms.EmailField(min_length=10)
+
+class BusquedaEquipoForm(forms.Form):
+    nombre = forms.CharField(min_length=4, max_length=10)
+

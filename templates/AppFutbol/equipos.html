@@ -6,6 +6,12 @@
         {{ form.as_table }}
         <input type="submit" value="Agregar">
     </form>
+    <br><hr>
+    <form action="{% url 'AppFutbolBusquedaEquipo' %}">
+        {{ form_busqueda.as_p }}
+        <input type="submit" value="Buscar">
+    </form>
+    <hr><br>
     <h1>Equipos agregados</h1>
     {% if equipos %}
         {% for equipo in equipos %}

@@ -7,4 +7,5 @@ urlpatterns = [
     path('jugadores', jugadores, name="AppFutbolJugadores"),
     path('profesores', profesores, name="AppFutbolProfesores"),
     path('home', home, name='inicio'),
+    path('busqueda_equipo', busqueda_equipo, name='AppFutbolBusquedaEquipo'),
 ]
