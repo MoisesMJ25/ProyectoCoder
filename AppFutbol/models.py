@@ -2,15 +2,15 @@ from django.db import models
 
 # Create your models here.
 class Equipo(models.Model):
-    nombre = models.CharField(max_length=20)
-    categoria = models.CharField(max_length=2, unique=True)
+    nombre = models.CharField(max_length=20, unique=True)
+    categoria = models.CharField(max_length=2)
 
     def __str__(self):
         return f"Equipo: {self.nombre}, Categoría {self.categoria}"
 
 
 class Jugadores(models.Model):
-    nombre = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=10)
     apellido = models.CharField(max_length=20)
     edad = models.IntegerField(100)
 

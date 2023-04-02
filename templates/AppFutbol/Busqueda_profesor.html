@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block contenido_cambia %}
+  {% if profesores %}
+      {% for profesor in profesores %}
+          <p>{{ profesor }}</p>
+
+      {% endfor %}
+  {% else %}
+      <h2>Profesor no se encuentra agregado</h2>
+  {% endif %}
+
+{% endblock %}

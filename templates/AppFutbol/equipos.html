@@ -1,26 +1,30 @@
 {% extends "base.html" %}
 
 {% block contenido_cambia %}
-    <form action="{% url 'AppFutbolEquipos' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_table }}
-        <input type="submit" value="Agregar">
-    </form>
+
+{# Buscar equipo #}
     <br><hr>
+    <h2>Buscar equipos</h2>
     <form action="{% url 'AppFutbolBusquedaEquipo' %}">
         {{ form_busqueda.as_p }}
         <input type="submit" value="Buscar">
     </form>
+
+    <br><hr>
+    <a href="{% url 'AppFutbolCrearEquipo' %}">Crear equipo</a>
+
+{# Ver equipos #}
     <hr><br>
-    <h1>Equipos agregados</h1>
     {% if equipos %}
+        <h2>Equipos agregados</h2>
         {% for equipo in equipos %}
-            <p>Equipo: {{ equipo.nombre }}</p>
-            <p>Categoria: {{ equipo.categoria }}</p>
+            <p>Equipo: {{ equipo.nombre }} Categoria: {{ equipo.categoria }} <a href="{% url 'AppFutbolEliminarEquipo' equipo.id %}">Eliminar</a> <a href="{% url 'AppFutbolEditarEquipo' equipo.id %}">Editar</a><p>
+
+            <hr>
 
         {% endfor %}
     {% else %}
-        <h1>No hay equipos agregados</h1>
+        <h2>No hay equipos agregados</h2>
     {% endif %}
 
 {% endblock %}

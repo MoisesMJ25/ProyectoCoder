@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block contenido_cambia %}
+
+{# Creación de equipo #}
+    <form action="{% url 'AppFutbolCrearJugador' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <input type="submit" value="Crear jugador">
+    </form>
+
+{% endblock %}

@@ -1,19 +1,30 @@
 {% extends "base.html" %}
 
 {% block contenido_cambia %}
-    <form action="{% url 'AppFutbolProfesores' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_table }}
-        <input type="submit" value="Agregar">
+
+{# Buscar profesor #}
+    <br><hr>
+    <h2>Buscar profesor</h2>
+    <form action="{% url 'AppFutbolBusquedaProfesor' %}">
+        {{ form_busqueda.as_p }}
+        <input type="submit" value="Buscar">
     </form>
-    <h1>Profesores agregados</h1>
+
+    <br><hr>
+    <a href="{% url 'AppFutbolCrearProfesor' %}">Crear profesor</a>
+
+{# Ver profesores #}
+    <hr><br>
     {% if profesores %}
+        <h2>Profesores agregados</h2>
         {% for profesor in profesores %}
             <p>Nombre: {{ profesor.nombre }}</p>
             <p>Apellido: {{ profesor.apellido }}</p>
-            <p>Edad: {{ profesor.email }}</p>
+            <p>Edad: {{ profesor.email }} <a href="{% url 'AppFutbolEliminarProfesor' profesor.id %}">Eliminar</a> <a href="{% url 'AppFutbolEditarProfesor' profesor.id %}">Editar</a><p>
 
         {% endfor %}
+    {% else %}
+        <h2>No hay profesores agregados</h2>
     {% endif %}
 
 {% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block contenido_cambia %}
+
+{# Editar profesor #}
+    <form action="{% url 'AppFutbolEditarProfesor' id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <input type="submit" value="Editar profesor">
+    </form>
+
+{% endblock %}

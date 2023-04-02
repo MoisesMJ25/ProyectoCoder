@@ -1,19 +1,30 @@
 {% extends "base.html" %}
 
 {% block contenido_cambia %}
-    <form action="{% url 'AppFutbolJugadores' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_table }}
-        <input type="submit" value="Agregar">
-    </form>
-    <h1>Jugadores agregados</h1>
-    {% if jugadores %}
-        {% for jugador in jugadores %}
-            <p>Nombre: {{ jugador.nombre }}</p>
-            <p>Apellido: {{ jugador.apellido }}</p>
-            <p>Edad: {{ jugador.edad }}</p>
 
+{# Buscar jugador #}
+    <br><hr>
+    <h2>Buscar jugador</h2>
+    <form action="{% url 'AppFutbolBusquedaJugador' %}">
+        {{ form_busquesa.as_p }}
+        <input type="submit" value="Buscar">
+    </form>
+
+    <br><hr>
+    <a href="{% url 'AppFutbolCrearJugador' %}">Crear jugador</a>
+
+{# Ver jugadores #}
+    <hr><br>
+
+    {% if jugadores %}
+        <h2>Jugadores agregados</h2>
+        {% for jugador in jugadores %}
+            <p>Nombre: {{ jugador.nombre }}
+            <p>Apellido: {{ jugador.apellido }}
+            <p>Edad: {{ jugador.edad }} <a href="{% url 'AppFutbolEliminarJugador' jugador.id %}">Eliminar</a> <a href="{% url 'AppFutbolEditarJugador' jugador.id %}">Editar</a><p>
         {% endfor %}
+    {% else %}
+        <h2>No hay jugadores agregados</h2>
     {% endif %}
 
 {% endblock %}

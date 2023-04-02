@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block contenido_cambia %}
+  {% if jugadores %}
+      {% for jugador in jugadores %}
+          <p>{{ jugador }}</p>
+
+      {% endfor %}
+  {% else %}
+      <h2>Jugador no se encuentra agregado</h2>
+  {% endif %}
+
+{% endblock %}
