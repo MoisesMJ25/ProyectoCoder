@@ -25,7 +25,7 @@ def equipos(request):
     }
     return render(request, "AppFutbol/equipos.html", context=context)
 
-@login_required
+#@login_required
 def crear_equipo(request):
     if request.method == "POST":
         mi_formulario = EquipoForm(request.POST)
