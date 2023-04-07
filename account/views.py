@@ -25,7 +25,7 @@ def editar_usuario(request):
                 user.avatar.imagen = info["imagen"]
             except:
                 avatar = Avatar(user=user, imagen=info["imagen"])
-                user.save()
+                avatar.save()
 
             user.save()
             return redirect("inicio")
@@ -83,3 +83,11 @@ def login_account(request):
     }
     return render(request, "account/form.html", context=context)
 
+"""def perfil_usuario(request):
+    user = request.user
+    all_equipos = Equipo.objects.all()
+    context = {
+        "equipos": all_equipos,
+        "form_busqueda": BusquedaEquipoForm(),
+    }
+    return render(request, "AppFutbol/equipos.html", context=context) """
