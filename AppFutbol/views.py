@@ -28,13 +28,14 @@ def equipos(request):
 #@login_required
 def crear_equipo(request):
     if request.method == "POST":
-        mi_formulario = EquipoForm(request.POST)
+        mi_formulario = EquipoForm(request.POST, request.FILES)
 
         if mi_formulario.is_valid():
             info = mi_formulario.cleaned_data
             equipo_save = Equipo(
                 nombre=info['nombre'],
-                categoria=info['categoria']
+                categoria=info['categoria'],
+                imagen=info['Imagen']
             )
             equipo_save.save()
             return redirect("AppFutbolEquipos")
@@ -48,13 +49,14 @@ def editar_equipo(request, id):
     get_equipo = Equipo.objects.get(id=id)
 
     if request.method == "POST":
-        mi_formulario = EquipoForm(request.POST)
+        mi_formulario = EquipoForm(request.POST, request.FILES)
 
         if mi_formulario.is_valid():
             info = mi_formulario.cleaned_data
 
             get_equipo.nombre = info['nombre']
             get_equipo.categoria = info['categoria']
+            get_equipo.imagen = info['imagen']
 
             get_equipo.save()
             return redirect("AppFutbolEquipos")
@@ -64,6 +66,7 @@ def editar_equipo(request, id):
         "form": EquipoForm(initial={
             "nombre": get_equipo.nombre,
             "categoria": get_equipo.categoria,
+            "imagen": get_equipo.imagen
         })
     }
     return render(request, "AppFutbol/editar_equipo.html", context=context)
@@ -80,7 +83,7 @@ def busqueda_equipo(request):
 
     return render(request, "AppFutbol/Busqueda_equipo.html", context=context)
 
-@login_required
+
 def eliminar_equipo(request, id):
     get_equipo = Equipo.objects.get(id=id)
     get_equipo.delete()
@@ -168,6 +171,7 @@ def buscar_jugador(request):
         }
 
     return render(request, "AppFutbol/Busqueda_jugador.html", context=context)
+
 
 def eliminar_jugador(request, id):
     get_jugador = Jugadores.objects.get(id=id)

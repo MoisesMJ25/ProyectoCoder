@@ -3,9 +3,9 @@
 {% block contenido_cambia %}
 
 {# Creación de equipo #}
-    <form action="{% url 'AppFutbolCrearEquipo' %}" method="post">
+    <form action="{% url 'AppFutbolCrearEquipo' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_table }}
+        {{ form.as_p }}
         <input type="submit" value="Crear equipo">
     </form>
 

@@ -4,9 +4,9 @@
 
 {# Buscar jugador #}
     <br><hr>
-    <h2>Buscar jugador</h2>
+    <h2 class="text-white font-weight-bold">Buscar jugador</h2>
     <form action="{% url 'AppFutbolBusquedaJugador' %}">
-        {{ form_busquesa.as_p }}
+        {{ form_busqueda.as_p }}
         <input type="submit" value="Buscar">
     </form>
 
@@ -17,14 +17,14 @@
     <hr><br>
 
     {% if jugadores %}
-        <h2>Jugadores agregados</h2>
+        <h2 class="text-white font-weight-bold">Jugadores agregados</h2>
         {% for jugador in jugadores %}
             <p>Nombre: {{ jugador.nombre }}
             <p>Apellido: {{ jugador.apellido }}
             <p>Edad: {{ jugador.edad }} <a href="{% url 'AppFutbolEliminarJugador' jugador.id %}">Eliminar</a> <a href="{% url 'AppFutbolEditarJugador' jugador.id %}">Editar</a><p>
         {% endfor %}
     {% else %}
-        <h2>No hay jugadores agregados</h2>
+        <h2 class="text-white font-weight-bold">No hay jugadores agregados</h2>
     {% endif %}
 
 {% endblock %}

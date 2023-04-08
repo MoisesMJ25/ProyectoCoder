@@ -4,7 +4,7 @@
 
 {# Buscar profesor #}
     <br><hr>
-    <h2>Buscar profesor</h2>
+    <h2 class="text-white font-weight-bold">Buscar profesor</h2>
     <form action="{% url 'AppFutbolBusquedaProfesor' %}">
         {{ form_busqueda.as_p }}
         <input type="submit" value="Buscar">
@@ -16,7 +16,7 @@
 {# Ver profesores #}
     <hr><br>
     {% if profesores %}
-        <h2>Profesores agregados</h2>
+        <h2 class="text-white font-weight-bold">Profesores agregados</h2>
         {% for profesor in profesores %}
             <p>Nombre: {{ profesor.nombre }}</p>
             <p>Apellido: {{ profesor.apellido }}</p>
@@ -24,7 +24,7 @@
 
         {% endfor %}
     {% else %}
-        <h2>No hay profesores agregados</h2>
+        <h2 class="text-white font-weight-bold">No hay profesores agregados</h2>
     {% endif %}
 
 {% endblock %}
