@@ -1,13 +1,18 @@
 Coderhouse - Python (comisión: 34675)
-    Tercera entrega - Proyecto final
-
+Proyecto final
 Autor: Moisés Marquina Juliao
+
+    video de aplicación: https://drive.google.com/file/d/1YxtrEu_VI2CFBrCDCxl5dNhNOVgmpq1F/view?usp=sharing
+
 
 Página Web orientada a usuarios que deseen buscar o agregar equipos de futbol de cualquier índole.
 
 Los usuarios pueden realizar las siguientes accciones:
 
 1. Podrán ver a los jugadores, entrenadores y equipos agregados;
-2. Podrán agregar nuevos jugadores, entrenadores y equipos;
-3. Buscar los equipos que se encuentran ingresados en la base de datos;
-4. Desplazarse por las diferentes vistas de la página web.
+2. Podrán registrarse en la página
+3. Podrán agregar nuevos jugadores, entrenadores y equipos;
+4. Buscar los equipos, jugadores y profesores que se encuentran ingresados en la base de datos;
+5. Desplazarse por las diferentes vistas de la página web;
+6. Ingresar la foto del equipo correspondiente;
+7. Podrán editar la información de los jugadores y profesores.
