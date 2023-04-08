@@ -4,7 +4,7 @@
 
 {# Buscar equipo #}
     <br><hr>
-    <h2>Buscar equipos</h2>
+    <h2 class="text-white font-weight-bold"> Buscar equipos</h2>
     <form action="{% url 'AppFutbolBusquedaEquipo' %}">
         {{ form_busqueda.as_p }}
         <input type="submit" value="Buscar">
@@ -16,10 +16,10 @@
 {# Ver equipos #}
     <hr><br>
     {% if equipos %}
-        <h2>Equipos agregados</h2>
+        <h2 class="text-white font-weight-bold"> Equipos agregados</h2>
         {% for equipo in equipos %}
             <p>Equipo: {{ equipo.nombre }} Categoria: {{ equipo.categoria }} <a href="{% url 'AppFutbolEliminarEquipo' equipo.id %}">Eliminar</a> <a href="{% url 'AppFutbolEditarEquipo' equipo.id %}">Editar</a><p>
-
+            <img src="{{ equipo.imagen.url }}" alt="Equipo" height="200 px">
             <hr>
 
         {% endfor %}

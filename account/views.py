@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate
 from account.forms import UserRegisterForm
 from account.models import Avatar
+
 
 # Create your views here.
 
@@ -18,7 +19,6 @@ def editar_usuario(request):
 
             user.username = info["username"]
             user.email = info["email"]
-            user.is_staff = info["is_staff"]
             user.avatar = info["imagen"]
 
             try:
@@ -33,7 +33,6 @@ def editar_usuario(request):
     form = UserRegisterForm(initial={
         "username": user.username,
         "email": user.email,
-        "is_staff": user.is_staff,
         "imagen": user.avatar
     })
 
@@ -44,14 +43,20 @@ def editar_usuario(request):
     }
     return render(request, "account/form.html", context=context)
 
+
+
 def register_account(request):
     if request.method == "POST":
         #form = UserCreationForm(request.POST)
-        form = UserRegisterForm(request.POST)
+        form = UserRegisterForm(request.POST, request.FILES)
+
         if form.is_valid():
+
             form.save()
-            return redirect("inicio")
+            return redirect(to='accountLogin')
+
     #form = UserCreationForm()
+
     form = UserRegisterForm()
     context = {
         "form": form,
@@ -59,6 +64,8 @@ def register_account(request):
         "enviar": "Registrar"
     }
     return render(request, "account/form.html", context=context)
+
+
 
 def login_account(request):
 
