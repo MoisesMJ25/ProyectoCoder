@@ -4,7 +4,7 @@ from django.db import models
 class EquipoForm(forms.Form):
     nombre = forms.CharField(min_length=4, max_length=10)
     categoria = forms.CharField(min_length=2)
-    Imagen = forms.ImageField()
+    imagen = forms.ImageField()
 
 class JugadorForm(forms.Form):
     nombre = forms.CharField(min_length=4, max_length=10)

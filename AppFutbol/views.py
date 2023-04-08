@@ -35,7 +35,7 @@ def crear_equipo(request):
             equipo_save = Equipo(
                 nombre=info['nombre'],
                 categoria=info['categoria'],
-                imagen=info['Imagen']
+                imagen=info['imagen']
             )
             equipo_save.save()
             return redirect("AppFutbolEquipos")
@@ -112,7 +112,8 @@ def jugadores(request):
     all_jugadores = Jugadores.objects.all()
     context = {
         "jugadores": all_jugadores,
-        "form": JugadorForm
+        "form": JugadorForm,
+        "form_busqueda": BusquedaJugadorForm(),
     }
     return render(request, "AppFutbol/jugadores.html", context=context)
 
@@ -201,7 +202,8 @@ def profesores(request):
     all_profesores = Profesores.objects.all()
     context = {
         "profesores": all_profesores,
-        "form": ProfesorForm
+        "form": ProfesorForm,
+        "form_busqueda": BusquedaProfesorForm(),
     }
     return render(request, "AppFutbol/profesores.html", context=context)
 

@@ -5,7 +5,7 @@
 {# Editar equipo #}
     <form action="{% url 'AppFutbolEditarEquipo' id %}" method="post">
         {% csrf_token %}
-        {{ form.as_table }}
+        {{ form.as_p }}
         <input type="submit" value="Editar equipo">
     </form>
 

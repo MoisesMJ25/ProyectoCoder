@@ -89,12 +89,3 @@ def login_account(request):
         "enviar": "Iniciar"
     }
     return render(request, "account/form.html", context=context)
-
-"""def perfil_usuario(request):
-    user = request.user
-    all_equipos = Equipo.objects.all()
-    context = {
-        "equipos": all_equipos,
-        "form_busqueda": BusquedaEquipoForm(),
-    }
-    return render(request, "AppFutbol/equipos.html", context=context) """

@@ -5,7 +5,7 @@
 {# Buscar equipo #}
     <br><hr>
     <h2 class="text-white font-weight-bold"> Buscar equipos</h2>
-    <form action="{% url 'AppFutbolBusquedaEquipo' %}">
+    <form action="{% url 'AppFutbolBusquedaEquipo' %}" enctype="multipart/form-data">
         {{ form_busqueda.as_p }}
         <input type="submit" value="Buscar">
     </form>
